@@ -58,7 +58,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Editor\Aligner.cs" />
      <Compile Include="Assets\Editor\AssetBundleBuildEditor.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Group\AssetBundleGroup.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Group\GroupDivider.cs" />
@@ -71,6 +70,7 @@
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Score\GetScoreFromSuffix.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Score\IScoreGetMethod.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Score\ScoreGroupDivide.cs" />
+     <Compile Include="Assets\Editor\TestEditorWindow.cs" />
      <Compile Include="Assets\Editor\UpdatingFinding.cs" />
      <None Include="Assets\Editor\AssetBundleGroupPackageScore\ScoreRules\ScoreMapJson.txt" />
      <None Include="Assets\Editor\AssetBundleGroupPackageScore\ScoreRules\SuffixMapJson.txt" />

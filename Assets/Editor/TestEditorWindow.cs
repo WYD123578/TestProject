@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-public class Aligner : EditorWindow
+public class TestEditorWindow : EditorWindow
 {
     bool showPosition = true;
     string status = "Select a GameObject";
@@ -9,7 +9,7 @@ public class Aligner : EditorWindow
     [MenuItem("Examples/Foldout Header Usage")]
     static void CreateWindow()
     {
-        GetWindow<Aligner>();
+        GetWindow<TestEditorWindow>();
     }
 
     public void OnGUI()
