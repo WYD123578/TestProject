@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\wangyudi\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\wangyudi\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_TestProject.584359227.00" t="ExcludeRecursive" />
+    <e p="E:\Local Files\Unity Files\TestProject" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Editor" t="Include">
+          <e p="Aligner.cs" t="Include" />
+          <e p="AssetBundleBuildEditor.cs" t="Include" />
+          <e p="AssetBundleGroupPackageScore" t="Include">
+            <e p="Group" t="Include">
+              <e p="AssetBundleGroup.cs" t="Include" />
+              <e p="GroupDivider.cs" t="Include" />
+              <e p="GroupNode.cs" t="Include" />
+              <e p="GroupTopologySort.cs" t="Include" />
+            </e>
+            <e p="GroupScoreEditor.cs" t="Include" />
+            <e p="GroupScoreManager.cs" t="Include" />
+            <e p="Relation" t="Include">
+              <e p="INodeRelation.cs" t="Include" />
+              <e p="NodeRelations.cs" t="Include" />
+            </e>
+            <e p="Score" t="Include">
+              <e p="GetScoreFromSuffix.cs" t="Include" />
+              <e p="IScoreGetMethod.cs" t="Include" />
+              <e p="ScoreGroupDivide.cs" t="Include" />
+            </e>
+            <e p="ScoreRules" t="Include">
+              <e p="ScoreMapJson.txt" t="Include" />
+              <e p="SuffixMapJson.txt" t="Include" />
+            </e>
+          </e>
+          <e p="UpdatingFinding.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="TestProject.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
