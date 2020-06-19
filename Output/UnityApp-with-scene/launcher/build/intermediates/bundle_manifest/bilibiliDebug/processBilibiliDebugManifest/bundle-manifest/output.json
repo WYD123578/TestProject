@@ -1,0 +1,1 @@
+[{"outputType":{"type":"BUNDLE_MANIFEST"},"apkData":{"type":"MAIN","splits":[],"versionCode":1,"versionName":"0.1","enabled":true,"outputFile":"launcher-bilibili-debug.apk","fullName":"bilibiliDebug","baseName":"bilibili-debug"},"path":"AndroidManifest.xml","properties":{"packageId":"com.DefaultCompany.TestProject","split":"","minSdkVersion":"19"}}]

@@ -1,0 +1,4 @@
+#Fri May 29 15:28:15 CST 2020
+base.0=E\:\\Local Files\\Unity Files\\TestProject\\Output\\UnityApp-non-resources\\launcher\\build\\intermediates\\transforms\\dexMerger\\release\\0
+path.0=classes.dex
+renamed.0=classes.dex

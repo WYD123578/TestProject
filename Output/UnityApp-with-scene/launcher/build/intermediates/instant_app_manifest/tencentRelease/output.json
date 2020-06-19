@@ -1,0 +1,1 @@
+[{"outputType":{"type":"INSTANT_APP_MANIFEST"},"apkData":{"type":"MAIN","splits":[],"versionCode":1,"versionName":"0.1","enabled":true,"outputFile":"launcher-tencent-release.apk","fullName":"tencentRelease","baseName":"tencent-release"},"path":"AndroidManifest.xml","properties":{"packageId":"com.DefaultCompany.TestProject","split":"","minSdkVersion":"19"}}]
