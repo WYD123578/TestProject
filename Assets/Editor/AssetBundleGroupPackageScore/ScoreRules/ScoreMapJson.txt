@@ -1,0 +1,8 @@
+{
+  "audio": 1,
+  "picture": 3,
+  "material": 4,
+  "scene": 12,
+  "prefab": 4,
+  "text": 3
+}

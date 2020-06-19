@@ -1,0 +1,9 @@
+{
+  "mp3": "audio",
+  "jpg": "picture",
+  "png": "picture",
+  "mat": "material",
+  "prefab": "prefab",
+  "txt": "text",
+  "unity": "scene"
+}
