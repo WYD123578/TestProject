@@ -7,7 +7,6 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Editor" t="Include">
-          <e p="Aligner.cs" t="Include" />
           <e p="AssetBundleBuildEditor.cs" t="Include" />
           <e p="AssetBundleGroupPackageScore" t="Include">
             <e p="Group" t="Include">
@@ -32,6 +31,7 @@
               <e p="SuffixMapJson.txt" t="Include" />
             </e>
           </e>
+          <e p="TestEditorWindow.cs" t="Include" />
           <e p="UpdatingFinding.cs" t="Include" />
         </e>
       </e>
