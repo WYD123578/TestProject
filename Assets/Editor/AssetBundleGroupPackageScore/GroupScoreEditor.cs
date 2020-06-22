@@ -84,7 +84,6 @@ namespace AssetBundleGroupPackageScore
 
         private void OnGUI()
         {
-            Repaint();
             EditorGUILayout.BeginVertical();
 
             //-----输入路径，名称等参数-----
@@ -217,6 +216,12 @@ namespace AssetBundleGroupPackageScore
                     _isScored = false;
                     Debug.LogError(e);
                 }
+            }
+            
+            //-----分析------
+            if (GUILayout.Button("开始分析关系", "LargeButton"))
+            {
+                new AssetBundleAnalyse().AnalyseRelation();
             }
 
             #region -----可视化显示分组评分结果-----

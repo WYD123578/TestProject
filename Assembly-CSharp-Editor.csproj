@@ -65,6 +65,7 @@
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Group\GroupTopologySort.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\GroupScoreEditor.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\GroupScoreManager.cs" />
+     <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Relation\AssetBundleAnalyse.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Relation\INodeRelation.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Relation\NodeRelations.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Score\GetScoreFromSuffix.cs" />
@@ -656,6 +657,12 @@
  <Reference Include="Boo.Lang">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{4CE07701-134F-9DD0-F36C-F385BB4D61DF}</Project>
+      <Name>Assembly-CSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
