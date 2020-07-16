@@ -428,20 +428,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Editor/AssetBundleGroupPackageScore/Group
+    - Assets/Editor/AssetBundleGroupPackageScore
   m_ViewMode: 1
   m_StartGridSize: 63
   m_LastFolders:
-  - Assets/Editor/AssetBundleGroupPackageScore/Group
+  - Assets/Editor/AssetBundleGroupPackageScore
   m_LastFoldersGridSize: 63
   m_LastProjectPath: E:\Local Files\Unity Files\TestProject
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e4330000
-    m_LastClickedID: 13284
-    m_ExpandedIDs: 00000000d0330000d2330000d4330000d6330000d8330000da330000dc330000de33000000ca9a3b
+    m_SelectedIDs: da330000
+    m_LastClickedID: 13274
+    m_ExpandedIDs: 00000000d0330000d2330000d4330000d6330000d8330000dc330000de33000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.22093362, y: -0.43144065, z: 0.10984793, w: -0.8677454}
     speed: 2
-    m_Value: {x: 0.22093362, y: 0.43144065, z: -0.10984793, w: 0.86774546}
+    m_Value: {x: -0.22093348, y: -0.43144038, z: 0.109847866, w: -0.86774486}
   m_Size:
     m_Target: 10
     speed: 2

@@ -16,6 +16,7 @@
               <e p="GroupNode.cs" t="Include" />
               <e p="GroupTopologySort.cs" t="Include" />
             </e>
+            <e p="GroupScore.cs" t="Include" />
             <e p="GroupScoreEditor.cs" t="Include" />
             <e p="GroupScoreManager.cs" t="Include" />
             <e p="Relation" t="Include">

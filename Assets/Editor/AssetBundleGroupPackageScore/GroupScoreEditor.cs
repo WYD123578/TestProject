@@ -13,8 +13,8 @@ namespace AssetBundleGroupPackageScore
 {
     public class GroupScoreEditor : EditorWindow
     {
-        private const string LOCAL_ASSETBUNDLE_PATH_RECORD = "LastAssetBundlePath";
-        private const string LOCAL_ASSETBUNDLE_NAME_RECORD = "LastAssetBundleName";
+        private const string LOCAL_ASSET_BUNDLE_PATH_RECORD = "LastAssetBundlePath";
+        private const string LOCAL_ASSET_BUNDLE_NAME_RECORD = "LastAssetBundleName";
         private const string LOCAL_JSON_SAVE_PATH_RECORD = "LastJsonSavePath";
         private const string LOCAL_IS_SCORED_RECORD = "LastIsScored";
 
@@ -41,8 +41,8 @@ namespace AssetBundleGroupPackageScore
 
         private void OnEnable()
         {
-            _assetBundlePath = PlayerPrefs.GetString(LOCAL_ASSETBUNDLE_PATH_RECORD);
-            _assetBundleName = PlayerPrefs.GetString(LOCAL_ASSETBUNDLE_NAME_RECORD);
+            _assetBundlePath = PlayerPrefs.GetString(LOCAL_ASSET_BUNDLE_PATH_RECORD);
+            _assetBundleName = PlayerPrefs.GetString(LOCAL_ASSET_BUNDLE_NAME_RECORD);
             _jsonSavePath = PlayerPrefs.GetString(LOCAL_JSON_SAVE_PATH_RECORD);
             _isScored = PlayerPrefs.GetInt(LOCAL_IS_SCORED_RECORD) == 1;
             if (_assetBundlePath == "") _assetBundlePath = Application.dataPath + "/StreamingAssets";
@@ -76,8 +76,8 @@ namespace AssetBundleGroupPackageScore
 
         private void OnDisable()
         {
-            PlayerPrefs.SetString(LOCAL_ASSETBUNDLE_PATH_RECORD, _assetBundlePath);
-            PlayerPrefs.SetString(LOCAL_ASSETBUNDLE_NAME_RECORD, _assetBundleName);
+            PlayerPrefs.SetString(LOCAL_ASSET_BUNDLE_PATH_RECORD, _assetBundlePath);
+            PlayerPrefs.SetString(LOCAL_ASSET_BUNDLE_NAME_RECORD, _assetBundleName);
             PlayerPrefs.SetString(LOCAL_JSON_SAVE_PATH_RECORD, _jsonSavePath);
             PlayerPrefs.SetInt(LOCAL_IS_SCORED_RECORD, _isScored ? 1 : -1);
         }
@@ -208,7 +208,7 @@ namespace AssetBundleGroupPackageScore
                     _scoredGroups = GroupDivideAndScore(_jsonSavePath,
                         _isBeforePackage
                             ? NodeRelations.RelationPackaged(_assetBundlePath, _assetBundleName)
-                            : new RelationBeforePackage());
+                            : NodeRelations.RelationBeforePackage());
                     _isScored = true;
                 }
                 catch (Exception e)

@@ -52,7 +52,8 @@ namespace AssetBundleGroupPackageScore.Relation
                 var abDirectDependencies = AssetDatabase.GetAssetBundleDependencies(assetBundleName, false);
                 var groupNode = new GroupNode(assetBundleName, i)
                 {
-                    NextNodeNames = abDirectDependencies, AllNextNodeNames = abAllDependencies
+                    NextNodeNames = abDirectDependencies, 
+                    AllNextNodeNames = abAllDependencies
                 };
                 groupNodes[i] = groupNode;
             }

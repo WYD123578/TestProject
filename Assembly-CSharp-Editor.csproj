@@ -63,6 +63,7 @@
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Group\GroupDivider.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Group\GroupNode.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Group\GroupTopologySort.cs" />
+     <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\GroupScore.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\GroupScoreEditor.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\GroupScoreManager.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Relation\AssetBundleAnalyse.cs" />
