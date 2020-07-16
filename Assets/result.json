@@ -1,1 +1,1 @@
-[{"Group_Id":0,"Group_Score":16,"Group_Nodes":[{"AssetBundleName":"prefab.ab","NodeScore":16,"DirectDependencies":[],"AllDependencies":[]}]}]
+[{"Group_Id":0,"Group_Score":12,"Group_Nodes":[{"AssetBundleName":"p1","NodeScore":12,"DirectDependencies":[],"AllDependencies":[]}]},{"Group_Id":1,"Group_Score":12,"Group_Nodes":[{"AssetBundleName":"p2","NodeScore":12,"DirectDependencies":[],"AllDependencies":[]}]}]

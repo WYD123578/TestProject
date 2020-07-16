@@ -33,6 +33,7 @@
               <e p="SuffixMapJson.txt" t="Include" />
             </e>
           </e>
+          <e p="Test.cs" t="Include" />
           <e p="TestEditorWindow.cs" t="Include" />
           <e p="UpdatingFinding.cs" t="Include" />
         </e>
