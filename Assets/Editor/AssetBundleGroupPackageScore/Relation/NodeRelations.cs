@@ -34,14 +34,18 @@ namespace AssetBundleGroupPackageScore.Relation
             #region ----Debug一下未使用AB标签的警告----
 
             var sb = new StringBuilder();
+            var unusedAssetBundleTagNumber = unusedAssetBundleNamesInProject.Length;
+            var logKey = "UnUsedAssetBundleTags";
+            LogRecorder.Record(logKey, $"======总共有{unusedAssetBundleTagNumber.ToString()}个未使用的标签======");
             foreach (var name in unusedAssetBundleNamesInProject)
             {
-                sb.Append('[');
-                sb.Append(name);
-                sb.Append(']');
+                var tagName = $"[{name}]";
+                sb.Append(tagName);
+                LogRecorder.Record(logKey, tagName);
             }
-            Debug.LogWarning($"有{unusedAssetBundleNamesInProject.Length.ToString()}个未使用的标签，分别是：{sb}");
-
+            Debug.LogWarning($"有{unusedAssetBundleTagNumber.ToString()}个未使用的AB标签，分别是：{sb}");
+            LogRecorder.Save("UnUsedAssetBundleTags");
+            
             #endregion
             
             var groupNodes = new GroupNode[usedAssetBundleNamesInProject.Length];

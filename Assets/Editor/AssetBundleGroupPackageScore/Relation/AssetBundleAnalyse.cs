@@ -35,15 +35,21 @@ namespace AssetBundleGroupPackageScore.Relation
             }
 
             //----权重分析完成后，将非AB包资源筛选出来----
+            LogRecorder.Record("AssetBundleAnalyse",
+                "========分析所有将被打包为AB包的资源，并计算其被引用的次数（权重）========");
             foreach (var kvp in _assetWeightDic)
             {
                 var assetName = kvp.Key;
                 var assetWeight = kvp.Value;
                 var assetBundleName = AssetDatabase.GetImplicitAssetBundleName(assetName);
-                Debug.Log(string.IsNullOrEmpty(assetBundleName)
-                    ? $"引用到未被指定打包的资源：{assetName},权重：{assetWeight.ToString()}"
-                    : $"引用到打包包名为{assetBundleName}的资源：{assetName},权重：{assetWeight.ToString()}");
+                var logMsg = string.IsNullOrEmpty(assetBundleName)
+                    ? $"—— 不会打进AB包的资源“{assetName}”被引用到的次数为：{assetWeight.ToString()}"
+                    : $"== 将被打包进“{assetBundleName}”的资源“{assetName}”被引用到的次数为：{assetWeight.ToString()}";
+                Debug.Log(logMsg);
+                LogRecorder.Record("AssetBundleAnalyse", logMsg);
             }
+
+            LogRecorder.Save("AssetBundleAnalyse");
         }
 
         private void UpdateWeight(string key)

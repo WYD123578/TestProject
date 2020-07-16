@@ -66,6 +66,7 @@
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\GroupScore.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\GroupScoreEditor.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\GroupScoreManager.cs" />
+     <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\LogRecorder.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Relation\AssetBundleAnalyse.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Relation\INodeRelation.cs" />
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Relation\NodeRelations.cs" />
