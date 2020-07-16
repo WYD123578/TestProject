@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using AssetBundleGroupPackageScore.Group;
 using AssetBundleGroupPackageScore.Relation;
@@ -98,6 +99,7 @@ namespace AssetBundleGroupPackageScore
 
         public List<AssetBundleGroup>[] GetPlatformPackageGroup(int plateFormCount)
         {
+            plateFormCount = Math.Min(_groups.Length, plateFormCount);
             return ScoreGroupDivide.AverageAssetBundleGroup(_groups, plateFormCount);
         }
 

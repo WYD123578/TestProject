@@ -8,34 +8,39 @@ namespace AssetBundleGroupPackageScore
 {
     public static class LogRecorder
     {
-        public static string SavePath = "E:/";
-        private static Dictionary<string, StringBuilder> _logRecorders = new Dictionary<string, StringBuilder>();
+        private static string SavePath = "E:/";
+        private static readonly Dictionary<string, StringBuilder> LogRecorders = new Dictionary<string, StringBuilder>();
 
         public static void Record(string recordKey, string logMessage)
         {
-            if (!_logRecorders.ContainsKey(recordKey))
-                _logRecorders.Add(recordKey, new StringBuilder());
+            if (!LogRecorders.ContainsKey(recordKey))
+                LogRecorders.Add(recordKey, new StringBuilder());
 
-            var logRecorder = _logRecorders[recordKey];
+            var logRecorder = LogRecorders[recordKey];
             logRecorder.Append(logMessage);
             logRecorder.Append("\t\n");
         }
 
-        public static void Save(string recordKey)
+        public static void Save(string recordKey, string savePath = null)
         {
-            if (!_logRecorders.ContainsKey(recordKey)) return;
+            if (string.IsNullOrEmpty(savePath)) savePath = SavePath;
+            
+            if (!LogRecorders.ContainsKey(recordKey)) return;
 
-            var logMsg = _logRecorders[recordKey].ToString();
+            var logMsg = LogRecorders[recordKey].ToString();
             var logMsgBytes = Encoding.UTF8.GetBytes(logMsg);
             var fileName = recordKey + ".txt";
             try
             {
-                File.WriteAllBytes(SavePath + fileName, logMsgBytes);
+                File.WriteAllBytes(savePath + fileName, logMsgBytes);
             }
             catch (NullReferenceException e)
             {
                 File.WriteAllBytes(Application.dataPath + fileName, logMsgBytes);
             }
+
+            LogRecorders[recordKey].Clear();
+            LogRecorders.Remove(recordKey);
         }
     }
 }

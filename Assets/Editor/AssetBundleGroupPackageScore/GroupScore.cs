@@ -14,8 +14,8 @@ namespace AssetBundleGroupPackageScore
         {
             Debug.Log("================开始分析项目AB资源================");
             new AssetBundleAnalyse().AnalyseRelation();
-            Debug.Log("================开始划分组别并评分================");
 
+            Debug.Log("================开始划分组别并评分================");
             var relation = NodeRelations.RelationBeforePackage();
             var groupScoreManager = new GroupScoreManager();
             var scoreMethod = new GetScoreFromSuffix(
@@ -28,9 +28,17 @@ namespace AssetBundleGroupPackageScore
                 groupScoreManager.TopologySortGroup(ref groups[i]);
                 groupScoreManager.GetGroupScore(ref groups[i], scoreMethod, relation);
             }
+
             LogRecorder.Record("GroupRes", JsonConvert.SerializeObject(groups));
-            LogRecorder.Save("GroupRes");
-            Debug.Log("================分组评分结束================");
+            LogRecorder.Save("GroupRes"); // , "/drone/src/temp"
+
+            Debug.Log("================开始根据评分划分打包平台组================");
+            var divideCount = 4;
+            var platformPackageGroup = groupScoreManager.GetPlatformPackageGroup(divideCount);
+            LogRecorder.Record("PlatformPackageGroup", JsonConvert.SerializeObject(platformPackageGroup));
+            LogRecorder.Save("PlatformPackageGroup");
+            
+            Debug.Log("================结束流程================");
         }
     }
 }
