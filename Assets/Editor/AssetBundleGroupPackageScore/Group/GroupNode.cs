@@ -1,14 +1,15 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace AssetBundleGroupPackageScore.Group
 {
     public class GroupNode
     {
-        [JsonIgnore] public readonly int NodeId;
-        [JsonProperty("AssetBundleName")] public readonly string NodeName;
-        [JsonProperty("NodeScore")] public long NodeScore;
-        [JsonProperty("DirectDependencies")] public string[] NextNodeNames;
-        [JsonProperty("AllDependencies")] public string[] AllNextNodeNames;
+        public readonly int NodeId;
+        public readonly string NodeName;
+        public long NodeScore;
+        public string[] NextNodeNames;
+        public string[] AllNextNodeNames;
 
         public GroupNode(string nodeName, int nodeId)
         {

@@ -1,8 +1,6 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using AssetBundleGroupPackageScore.Relation;
 using AssetBundleGroupPackageScore.Score;
-using Newtonsoft.Json;
 using UnityEngine;
 
 namespace AssetBundleGroupPackageScore
@@ -30,17 +28,17 @@ namespace AssetBundleGroupPackageScore
                 groupScoreManager.GetGroupScore(ref groups[i], scoreMethod, relation);
             }
 
-            LogRecorder.Record("GroupRes", JsonConvert.SerializeObject(groups));
+            LogRecorder.Record("GroupRes", Serialize.From(groups));
             LogRecorder.Save("GroupRes");
 
-            var divideCount = 1;
+            var divideCount = 2;
 #if UNITY_2018_1_OR_NEWER
             Debug.Log($"================开始根据评分划分打包到{divideCount.ToString()}个平台组================");
 #else
             Debug.LogFormat("================开始根据评分划分打包到{0}个平台组================", divideCount.ToString());
 #endif
             var platformPackageGroup = groupScoreManager.GetPlatformPackageGroup(divideCount);
-            LogRecorder.Record("PlatformPackageGroup", JsonConvert.SerializeObject(platformPackageGroup));
+            LogRecorder.Record("PlatformPackageGroup", Serialize.From(platformPackageGroup));
             LogRecorder.Save("PlatformPackageGroup");
 
             Debug.Log("================结束流程================");

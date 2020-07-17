@@ -210,6 +210,7 @@ namespace AssetBundleGroupPackageScore
                             ? NodeRelations.RelationPackaged(_assetBundlePath, _assetBundleName)
                             : NodeRelations.RelationBeforePackage());
                     _isScored = true;
+                    GroupScore.DivideAndScoreGroup();
                 }
                 catch (Exception e)
                 {

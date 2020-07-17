@@ -19,8 +19,11 @@
             <e p="GroupScore.cs" t="Include" />
             <e p="GroupScoreEditor.cs" t="Include" />
             <e p="GroupScoreManager.cs" t="Include" />
+            <e p="Json" t="Include">
+              <e p="DeJSON.cs" t="Include" />
+              <e p="MiniJSON.cs" t="Include" />
+            </e>
             <e p="LogRecorder.cs" t="Include" />
-            <e p="MiniJSON.cs" t="Include" />
             <e p="Relation" t="Include">
               <e p="AssetBundleAnalyse.cs" t="Include" />
               <e p="INodeRelation.cs" t="Include" />

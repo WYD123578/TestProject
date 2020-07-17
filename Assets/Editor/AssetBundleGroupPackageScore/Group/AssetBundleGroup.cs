@@ -1,13 +1,13 @@
-﻿using System.Linq;
-using Newtonsoft.Json;
+﻿using System;
+using System.Linq;
 
 namespace AssetBundleGroupPackageScore.Group
 {
     public class AssetBundleGroup
     {
-        [JsonProperty("Group_Id")] public int GroupId;
-        [JsonProperty("Group_Score")] public long GroupScore;
-        [JsonProperty("Group_Nodes")] public GroupNode[] GroupNodes;
+        public int GroupId;
+        public long GroupScore;
+        public GroupNode[] GroupNodes;
 
         public string[] GetGroupMemberNames()
         {
