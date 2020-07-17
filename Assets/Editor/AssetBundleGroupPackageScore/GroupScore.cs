@@ -32,11 +32,11 @@ namespace AssetBundleGroupPackageScore
             LogRecorder.Record("GroupRes", JsonConvert.SerializeObject(groups));
             LogRecorder.Save("GroupRes");
 
-            var divideCount = 4;
+            var divideCount = 0;
 #if UNITY_2018_1_OR_NEWER
-            Debug.Log("================开始根据评分划分打包平台组================");
+            Debug.Log($"================开始根据评分划分打包到{divideCount.ToString()}个平台组================");
 #else
-            Debug.LogFormat("================开始根据评分划分打包{0}平台组================", divideCount.ToString());
+            Debug.LogFormat("================开始根据评分划分打包到{0}个平台组================", divideCount.ToString());
 #endif
             var platformPackageGroup = groupScoreManager.GetPlatformPackageGroup(divideCount);
             LogRecorder.Record("PlatformPackageGroup", JsonConvert.SerializeObject(platformPackageGroup));

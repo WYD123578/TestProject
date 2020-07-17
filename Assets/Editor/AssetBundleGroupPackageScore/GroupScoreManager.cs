@@ -100,6 +100,7 @@ namespace AssetBundleGroupPackageScore
         public List<AssetBundleGroup>[] GetPlatformPackageGroup(int plateFormCount)
         {
             plateFormCount = Math.Min(_groups.Length, plateFormCount);
+            if(plateFormCount == 0) return new List<AssetBundleGroup>[1];
             return ScoreGroupDivide.AverageAssetBundleGroup(_groups, plateFormCount);
         }
 

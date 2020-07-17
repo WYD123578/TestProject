@@ -9,7 +9,7 @@ namespace AssetBundleGroupPackageScore
     public static class LogRecorder
     {
 #if UNITY_EDITOR_WIN
-        private static string SavePath = "E:/TempLog";
+        private static string SavePath = "E:/TempLog/";
 #elif UNITY_EDITOR_LINUX
         private static string SavePath = "/drone/src/temp";
 #endif
