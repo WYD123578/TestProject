@@ -1,7 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
-
-namespace AssetBundleGroupPackageScore.Group
+﻿namespace AssetBundleGroupPackageScore.Group
 {
     public class GroupNode
     {

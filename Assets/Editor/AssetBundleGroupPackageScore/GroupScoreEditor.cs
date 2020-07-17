@@ -4,7 +4,6 @@ using System.Text;
 using AssetBundleGroupPackageScore.Group;
 using AssetBundleGroupPackageScore.Relation;
 using AssetBundleGroupPackageScore.Score;
-using Newtonsoft.Json;
 using UnityEditor;
 using UnityEditor.AnimatedValues;
 using UnityEngine;
@@ -56,7 +55,8 @@ namespace AssetBundleGroupPackageScore
                     {
                         var jsonBytes = File.ReadAllBytes(_jsonSavePath);
                         var jsonStr = Encoding.UTF8.GetString(jsonBytes);
-                        _scoredGroups = JsonConvert.DeserializeObject<AssetBundleGroup[]>(jsonStr);
+                        _scoredGroups =
+                            Deserialize.To<AssetBundleGroup[]>(jsonStr);
                     }
                     catch (Exception e)
                     {
@@ -345,7 +345,7 @@ namespace AssetBundleGroupPackageScore
             File.Delete(jsonSavePath);
             using (var fs = new FileStream(jsonSavePath, FileMode.Create))
             {
-                var json = JsonConvert.SerializeObject(groups);
+                var json = Serialize.From(groups);
                 var jsonBytes = Encoding.UTF8.GetBytes(json);
                 fs.Write(jsonBytes, 0, jsonBytes.Length);
                 fs.Close();

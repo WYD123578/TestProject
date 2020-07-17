@@ -77,7 +77,6 @@
      <Compile Include="Assets\Editor\AssetBundleGroupPackageScore\Score\ScoreGroupDivide.cs" />
      <Compile Include="Assets\Editor\Test.cs" />
      <Compile Include="Assets\Editor\TestEditorWindow.cs" />
-     <Compile Include="Assets\Editor\UpdatingFinding.cs" />
      <None Include="Assets\Editor\AssetBundleGroupPackageScore\ScoreRules\ScoreMapJson.txt" />
      <None Include="Assets\Editor\AssetBundleGroupPackageScore\ScoreRules\SuffixMapJson.txt" />
  <Reference Include="UnityEditor.TestRunner">
@@ -301,9 +300,6 @@
  </Reference>
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.9f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="Newtonsoft.Json">
- <HintPath>E:/Local Files/Unity Files/TestProject/Assets/Editor/AssetBundleGroupPackageScore/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>E:/Local Files/Unity Files/TestProject/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
