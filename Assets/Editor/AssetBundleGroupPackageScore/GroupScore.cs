@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using AssetBundleGroupPackageScore.Relation;
 using AssetBundleGroupPackageScore.Score;
 using Newtonsoft.Json;
@@ -32,7 +33,7 @@ namespace AssetBundleGroupPackageScore
             LogRecorder.Record("GroupRes", JsonConvert.SerializeObject(groups));
             LogRecorder.Save("GroupRes");
 
-            var divideCount = 0;
+            var divideCount = 1;
 #if UNITY_2018_1_OR_NEWER
             Debug.Log($"================开始根据评分划分打包到{divideCount.ToString()}个平台组================");
 #else
