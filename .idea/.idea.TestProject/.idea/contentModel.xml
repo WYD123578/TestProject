@@ -41,7 +41,6 @@
           </e>
           <e p="Test.cs" t="Include" />
           <e p="TestEditorWindow.cs" t="Include" />
-          <e p="UpdatingFinding.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
           <e p="AssetHook.cs" t="Include" />

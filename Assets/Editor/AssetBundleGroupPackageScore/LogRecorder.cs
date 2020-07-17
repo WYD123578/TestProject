@@ -45,7 +45,6 @@ namespace AssetBundleGroupPackageScore
                 File.WriteAllBytes(Application.dataPath + fileName, logMsgBytes);
             }
 
-            LogRecorders[recordKey].Clear();
             LogRecorders.Remove(recordKey);
         }
     }
