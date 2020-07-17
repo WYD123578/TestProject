@@ -42,9 +42,25 @@ namespace AssetBundleGroupPackageScore.Relation
                 var assetName = kvp.Key;
                 var assetWeight = kvp.Value;
                 var assetBundleName = AssetDatabase.GetImplicitAssetBundleName(assetName);
+#if UNITY_2018_1_OR_NEWER
                 var logMsg = string.IsNullOrEmpty(assetBundleName)
                     ? $"—— 不会打进AB包的资源“{assetName}”被引用到的次数为：{assetWeight.ToString()}"
                     : $"== 将被打包进“{assetBundleName}”的资源“{assetName}”被引用到的次数为：{assetWeight.ToString()}";
+#else
+                var logMsg = string.IsNullOrEmpty(assetBundleName)
+                    ? new StringBuilder()
+                        .Append("—— 不会打进AB包的资源“")
+                        .Append(assetName)
+                        .Append("”被引用到的次数为：")
+                        .Append(assetWeight.ToString())
+                        .ToString()
+                    : new StringBuilder()
+                        .Append("== 将被打包进“{assetBundleName}”的资源“")
+                        .Append(assetName)
+                        .Append("”被引用到的次数为：")
+                        .Append(assetWeight.ToString())
+                        .ToString();
+#endif
                 Debug.Log(logMsg);
                 LogRecorder.Record("AssetBundleAnalyse", logMsg);
             }

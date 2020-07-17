@@ -30,14 +30,18 @@ namespace AssetBundleGroupPackageScore
             }
 
             LogRecorder.Record("GroupRes", JsonConvert.SerializeObject(groups));
-            LogRecorder.Save("GroupRes"); // , "/drone/src/temp"
+            LogRecorder.Save("GroupRes");
 
-            Debug.Log("================开始根据评分划分打包平台组================");
             var divideCount = 4;
+#if UNITY_2018_1_OR_NEWER
+            Debug.Log("================开始根据评分划分打包平台组================");
+#else
+            Debug.LogFormat("================开始根据评分划分打包{0}平台组================", divideCount.ToString());
+#endif
             var platformPackageGroup = groupScoreManager.GetPlatformPackageGroup(divideCount);
             LogRecorder.Record("PlatformPackageGroup", JsonConvert.SerializeObject(platformPackageGroup));
             LogRecorder.Save("PlatformPackageGroup");
-            
+
             Debug.Log("================结束流程================");
         }
     }

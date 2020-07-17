@@ -39,6 +39,13 @@ namespace AssetBundleGroupPackageScore.Group
             _isMarked[searchNode.NodeId] = true;
             foreach (var nextNodeName in searchNode.NextNodeNames)
             {
+#if UNITY_2018_1_OR_NEWER
+                if (!_nodeDict.TryGetValue(nextNodeName, out var nextNode)) continue;
+                if (!_isMarked[nextNode.NodeId])
+                {
+                    DeepFirstSearch(nextNode);
+                }
+#else
                 GroupNode nextNode;
                 if (_nodeDict.TryGetValue(nextNodeName, out nextNode))
                 {
@@ -47,6 +54,7 @@ namespace AssetBundleGroupPackageScore.Group
                         DeepFirstSearch(nextNode);
                     }
                 }
+#endif
             }
 
             TopologySortNodes.Enqueue(searchNode);

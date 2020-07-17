@@ -36,6 +36,7 @@ namespace AssetBundleGroupPackageScore.Relation
             var sb = new StringBuilder();
             var unusedAssetBundleTagNumber = unusedAssetBundleNamesInProject.Length;
             var logKey = "UnUsedAssetBundleTags";
+#if UNITY_2018_1_OR_NEWER
             LogRecorder.Record(logKey, $"======总共有{unusedAssetBundleTagNumber.ToString()}个未使用的标签======");
             foreach (var name in unusedAssetBundleNamesInProject)
             {
@@ -44,6 +45,17 @@ namespace AssetBundleGroupPackageScore.Relation
                 LogRecorder.Record(logKey, tagName);
             }
             Debug.LogWarning($"有{unusedAssetBundleTagNumber.ToString()}个未使用的AB标签，分别是：{sb}");
+#else
+            LogRecorder.Record(logKey, "======总共有" + unusedAssetBundleTagNumber.ToString() + "个未使用的标签======");
+            foreach (var name in unusedAssetBundleNamesInProject)
+            {
+                var tagName = "[" + name + "]";
+                sb.Append(tagName);
+                LogRecorder.Record(logKey, tagName);
+            }
+
+            Debug.LogWarning("有" + unusedAssetBundleTagNumber.ToString() + "个未使用的AB标签，分别是：{sb}");
+#endif
             LogRecorder.Save("UnUsedAssetBundleTags");
             
             #endregion
