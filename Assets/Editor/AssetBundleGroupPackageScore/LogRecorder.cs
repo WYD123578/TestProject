@@ -8,8 +8,14 @@ namespace AssetBundleGroupPackageScore
 {
     public static class LogRecorder
     {
-        private static string SavePath = "E:/";
-        private static readonly Dictionary<string, StringBuilder> LogRecorders = new Dictionary<string, StringBuilder>();
+#if UNITY_EDITOR_WIN
+        private static string SavePath = "E:/TempLog";
+#elif UNITY_EDITOR_LINUX
+        private static string SavePath = "/drone/src/temp";
+#endif
+
+        private static readonly Dictionary<string, StringBuilder>
+            LogRecorders = new Dictionary<string, StringBuilder>();
 
         public static void Record(string recordKey, string logMessage)
         {
@@ -24,7 +30,7 @@ namespace AssetBundleGroupPackageScore
         public static void Save(string recordKey, string savePath = null)
         {
             if (string.IsNullOrEmpty(savePath)) savePath = SavePath;
-            
+
             if (!LogRecorders.ContainsKey(recordKey)) return;
 
             var logMsg = LogRecorders[recordKey].ToString();
