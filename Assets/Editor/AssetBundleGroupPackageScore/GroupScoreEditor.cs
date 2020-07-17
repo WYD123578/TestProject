@@ -200,7 +200,7 @@ namespace AssetBundleGroupPackageScore
             _jsonSavePath = _jsonSavePath.Replace('\\', '/').Trim().TrimEnd('/');
 
             //-----评分-----
-            EditorGUILayout.Space(10);
+            EditorGUILayout.Space();
             if (GUILayout.Button("开始分析评分", "LargeButton"))
             {
                 try
@@ -210,7 +210,6 @@ namespace AssetBundleGroupPackageScore
                             ? NodeRelations.RelationPackaged(_assetBundlePath, _assetBundleName)
                             : NodeRelations.RelationBeforePackage());
                     _isScored = true;
-                    GroupScore.DivideAndScoreGroup();
                 }
                 catch (Exception e)
                 {
@@ -218,7 +217,7 @@ namespace AssetBundleGroupPackageScore
                     Debug.LogError(e);
                 }
             }
-            
+
             //-----分析------
             if (GUILayout.Button("开始分析关系", "LargeButton"))
             {
@@ -227,11 +226,14 @@ namespace AssetBundleGroupPackageScore
 
             #region -----可视化显示分组评分结果-----
 
-            EditorGUILayout.Space(20);
-
+            EditorGUILayout.Space();
+#if UNITY_2018_1_OR_NEWER
             _showResultAnim.target =
                 EditorGUILayout.BeginFoldoutHeaderGroup(_showResultAnim.target, "分析的结果", null,
                     ShowResultHeaderContextMenu);
+#else
+            EditorGUILayout.BeginVertical();
+#endif
             _scrollPos = EditorGUILayout.BeginScrollView(_scrollPos);
 
             if (EditorGUILayout.BeginFadeGroup(_showResultAnim.faded))
@@ -239,22 +241,43 @@ namespace AssetBundleGroupPackageScore
                 if (_isScored && _scoredGroups != null)
                 {
                     EditorGUILayout.LabelField("评分结果如下：");
+                    if (_scoredGroups.Length == 0)
+                    {
+                        EditorGUILayout.TextField("分组个数为0");
+                    }
                     foreach (var scoredGroup in _scoredGroups)
                     {
                         EditorGUILayout.BeginVertical("box");
-
+#if UNITY_2018_1_OR_NEWER
                         var groupLabel = $"组ID：{scoredGroup.GroupId.ToString()}";
                         var groupScoreLabel = $"组得分：{scoredGroup.GroupScore.ToString()}";
                         var groupNodes = scoredGroup.GroupNodes;
                         EditorGUILayout.LabelField(groupLabel);
                         EditorGUILayout.LabelField(groupScoreLabel);
                         EditorGUILayout.LabelField($"组成员{groupNodes.Length.ToString()}个，具体如下：");
+#else
+                        var groupLabel = "组ID：" + scoredGroup.GroupId.ToString();
+                        var groupScoreLabel = "组得分：" + scoredGroup.GroupScore.ToString();
+                        var groupNodes = scoredGroup.GroupNodes;
+                        EditorGUILayout.LabelField(groupLabel);
+                        EditorGUILayout.LabelField(groupScoreLabel);
+                        EditorGUILayout.LabelField("组成员" + groupNodes.Length.ToString() + "个，具体如下：");
+#endif
+
 
                         for (var i = 0; i < groupNodes.Length; i++)
                         {
                             var groupNode = groupNodes[i];
+#if UNITY_2018_1_OR_NEWER
                             var nodeLabel =
                                 $"成员{(i + 1).ToString()}：{groupNode.NodeName}  得分：{groupNode.NodeScore.ToString()}";
+
+#else
+                            var nodeLabel =
+                                "成员" + (i + 1).ToString() + "：" + groupNode.NodeName + " 得分：" +
+                                groupNode.NodeScore.ToString();
+#endif
+
                             EditorGUILayout.SelectableLabel(nodeLabel);
                         }
 
@@ -270,8 +293,14 @@ namespace AssetBundleGroupPackageScore
                                 sb.Append("\r\n");
                             }
 
+#if UNITY_2018_1_OR_NEWER
                             var path = Path.Combine(_jsonSavePath.Substring(0, _jsonSavePath.LastIndexOf('/')),
                                 $"{scoredGroup.GroupId.ToString()}.csv");
+#else
+                            var path = Path.Combine(_jsonSavePath.Substring(0, _jsonSavePath.LastIndexOf('/')),
+                                scoredGroup.GroupId.ToString() + ".csv");
+#endif
+
                             File.Delete(path);
                             using (var fs = new FileStream(path, FileMode.Create))
                             {
@@ -283,7 +312,7 @@ namespace AssetBundleGroupPackageScore
 
                         EditorGUILayout.EndVertical();
 
-                        EditorGUILayout.Space(20);
+                        EditorGUILayout.Space();
                     }
                 }
                 else
@@ -295,7 +324,11 @@ namespace AssetBundleGroupPackageScore
 
             EditorGUILayout.EndFadeGroup();
             EditorGUILayout.EndScrollView();
+#if UNITY_2018_1_OR_NEWER
             EditorGUILayout.EndFoldoutHeaderGroup();
+#else
+            EditorGUILayout.EndVertical();
+#endif
 
             #endregion
 
@@ -350,7 +383,7 @@ namespace AssetBundleGroupPackageScore
                 fs.Write(jsonBytes, 0, jsonBytes.Length);
                 fs.Close();
             }
-            
+
             return groups;
         }
     }
