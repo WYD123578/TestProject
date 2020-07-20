@@ -7,7 +7,9 @@
         public long NodeScore;
         public string[] NextNodeNames;
         public string[] AllNextNodeNames;
-
+        
+        public GroupNode() {}
+        
         public GroupNode(string nodeName, int nodeId)
         {
             NodeId = nodeId;

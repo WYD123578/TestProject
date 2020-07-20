@@ -29,7 +29,8 @@ namespace AssetBundleGroupPackageScore.Relation
         {
             var allAssetBundleNamesInProject = AssetDatabase.GetAllAssetBundleNames();
             var unusedAssetBundleNamesInProject = AssetDatabase.GetUnusedAssetBundleNames();
-            var usedAssetBundleNamesInProject = allAssetBundleNamesInProject.Except(unusedAssetBundleNamesInProject).ToArray();
+            var usedAssetBundleNamesInProject =
+                allAssetBundleNamesInProject.Except(unusedAssetBundleNamesInProject).ToArray();
 
             #region ----Debug一下未使用AB标签的警告----
 
@@ -44,7 +45,9 @@ namespace AssetBundleGroupPackageScore.Relation
                 sb.Append(tagName);
                 LogRecorder.Record(logKey, tagName);
             }
-            Debug.LogWarning($"有{unusedAssetBundleTagNumber.ToString()}个未使用的AB标签，分别是：{sb}");
+
+            if (unusedAssetBundleTagNumber != 0)
+                Debug.LogWarning($"有{unusedAssetBundleTagNumber.ToString()}个未使用的AB标签，分别是：{sb}");
 #else
             LogRecorder.Record(logKey, "======总共有" + unusedAssetBundleTagNumber.ToString() + "个未使用的标签======");
             foreach (var name in unusedAssetBundleNamesInProject)
@@ -54,12 +57,13 @@ namespace AssetBundleGroupPackageScore.Relation
                 LogRecorder.Record(logKey, tagName);
             }
 
-            Debug.LogWarning("有" + unusedAssetBundleTagNumber.ToString() + "个未使用的AB标签，分别是：{sb}");
+            if (unusedAssetBundleTagNumber != 0)
+                Debug.LogWarning("有" + unusedAssetBundleTagNumber.ToString() + "个未使用的AB标签，分别是：" + sb);
 #endif
             LogRecorder.Save("UnUsedAssetBundleTags");
-            
+
             #endregion
-            
+
             var groupNodes = new GroupNode[usedAssetBundleNamesInProject.Length];
             for (var i = 0; i < usedAssetBundleNamesInProject.Length; i++)
             {
@@ -68,7 +72,7 @@ namespace AssetBundleGroupPackageScore.Relation
                 var abDirectDependencies = AssetDatabase.GetAssetBundleDependencies(assetBundleName, false);
                 var groupNode = new GroupNode(assetBundleName, i)
                 {
-                    NextNodeNames = abDirectDependencies, 
+                    NextNodeNames = abDirectDependencies,
                     AllNextNodeNames = abAllDependencies
                 };
                 groupNodes[i] = groupNode;
@@ -101,13 +105,13 @@ namespace AssetBundleGroupPackageScore.Relation
             _assetBundlePath = assetBundlePath;
             _assetBundleName = assetBundleName;
         }
-        
+
         public GroupNode[] GetRelationGroupNodes()
         {
             var path = Path.Combine(_assetBundlePath, _assetBundleName);
             var assetBundle = AssetBundle.LoadFromFile(path);
             var manifest = assetBundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
-            
+
             //------将所有AB包名节点化------
             var abNames = manifest.GetAllAssetBundles();
             var groupNodes = new GroupNode[abNames.Length];
@@ -118,14 +122,14 @@ namespace AssetBundleGroupPackageScore.Relation
                 var nodeId = i;
                 var node = new GroupNode(nodeName, nodeId)
                 {
-                    NextNodeNames = manifest.GetDirectDependencies(abNames[i]),//获取直接依赖的包名
-                    AllNextNodeNames = manifest.GetAllDependencies(abNames[i])//获取所有依赖的包名
+                    NextNodeNames = manifest.GetDirectDependencies(abNames[i]), //获取直接依赖的包名
+                    AllNextNodeNames = manifest.GetAllDependencies(abNames[i]) //获取所有依赖的包名
                 };
                 groupNodes[i] = node;
             }
-            
+
             assetBundle.Unload(true);
-            
+
             return groupNodes;
         }
 
