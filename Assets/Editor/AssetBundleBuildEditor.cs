@@ -11,4 +11,15 @@ public static class AssetBundleBuildEditor
         BuildPipeline.BuildAssetBundles(Application.streamingAssetsPath,
             BuildAssetBundleOptions.UncompressedAssetBundle, BuildTarget.Android);
     }
+
+    [MenuItem("AssetBundle/BuildCertain")]
+    public static void BuildTest()
+    {
+        var builds = new AssetBundleBuild();
+        builds.assetBundleName = "p2";
+        builds.assetBundleVariant = "";
+        builds.assetNames = AssetDatabase.GetAssetPathsFromAssetBundle("p2");
+        BuildPipeline.BuildAssetBundles(Application.streamingAssetsPath, new AssetBundleBuild[] {builds},
+            BuildAssetBundleOptions.UncompressedAssetBundle, BuildTarget.Android);
+    }
 }
